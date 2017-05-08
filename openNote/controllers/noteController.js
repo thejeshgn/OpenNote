@@ -87,7 +87,7 @@ openNote.controller("noteController", function(	$scope,
 				$scope.showDeleteButton = true;
 			console.debug("Editor config");
 			console.debug(config);
-			simplemde = new SimpleMDE({ element: document.getElementById("note") });
+			simplemde = new SimpleMDE({spellChecker: false, element: document.getElementById("note") });
 			
 			$rootScope.buttons=[];
 
