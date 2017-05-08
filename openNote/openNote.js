@@ -8,7 +8,7 @@ var openNote = angular.module("openNote", [	"ngRoute",
                                            	"ngResource",
                                            	"ngSanitize",
                                            	"ngAnimate"]);
-
+var simplemde;
 /**
  * Used to redirect users to login if their token has expired
  * Runs on every route

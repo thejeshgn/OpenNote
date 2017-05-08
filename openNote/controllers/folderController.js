@@ -151,6 +151,7 @@ openNote.controller("folderController", function(	$scope,
 	 * @param note - load a note
 	 */
 	$scope.loadNote = function(note){
+		console.log("loadNote gets called.")
 		$scope.fadeOutFoldersAndNotes(function(){
 			$location.url("/note/"+note.id);
 		});

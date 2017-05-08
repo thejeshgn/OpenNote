@@ -79,6 +79,7 @@ openNote.controller("noteController", function(	$scope,
 	 * Take us into edit mode
 	 */
 	var activateEditMode = function(){
+		console.log("activateEditMode - simplemde initialization")
 		serverConfigService.getEditorConfig().then(function(config){
 			$scope.editMode=true;
 
@@ -86,7 +87,8 @@ openNote.controller("noteController", function(	$scope,
 				$scope.showDeleteButton = true;
 			console.debug("Editor config");
 			console.debug(config);
-			CKEDITOR.replace("note", config);
+			simplemde = new SimpleMDE({ element: document.getElementById("note") });
+			
 			$rootScope.buttons=[];
 
 			attachWindowUnload();
@@ -101,7 +103,7 @@ openNote.controller("noteController", function(	$scope,
 	 * Save a note
 	 */
 	var save = function(){
-		$scope.note.note = CKEDITOR.instances.note.getData();
+		$scope.note.note = simplemde.value();
 
 		$(".notePartial").fadeOut(config.fadeSpeedShort(),function(){
 			$scope.note.type="note";
@@ -179,7 +181,7 @@ openNote.controller("noteController", function(	$scope,
 	 * Mark html as trusted
 	 */
 	$scope.trustHTML = function(html) {
-	    return $sce.trustAsHtml(html);
+		simplemde.value(html);
 	};
 
 	/**
@@ -213,13 +215,10 @@ openNote.controller("noteController", function(	$scope,
 			 */
 			storageService.database().get($routeParams.id).then(function(doc){
 				$scope.note=doc;
+				activateEditMode();
 				$(".notePartial").fadeIn(config.fadeSpeedLong());
 
 				//Add buttons
-					$rootScope.buttons.push(upButton($scope.note.parentFolderID));
-					$rootScope.buttons.push(copyButton($scope.note));
-					$rootScope.buttons.push(editButton());
-
 				$scope.$apply();
 			});
 		}
