@@ -84,7 +84,8 @@ openNote.controller("noteController", function(	$scope,
 
 			if($scope.note._id)
 				$scope.showDeleteButton = true;
-
+			console.debug("Editor config");
+			console.debug(config);
 			CKEDITOR.replace("note", config);
 			$rootScope.buttons=[];
 

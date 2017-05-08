@@ -50,9 +50,47 @@ openNote.service("serverConfigService", function ($http, $q, config, userService
 			var temp = {
 					removePlugins 				:	"newpage,save,templates,about,liststyle,tabletools,scayt,contextmenu", //remove some icons menu button
 					//extraPlugins				:	"imagepaste",
-					height 						: 	"400px",
+					height 						: 	"600px",
 					disableNativeSpellChecker 	: 	false
 				};
+
+// %REMOVE_START%
+	// The configuration options below are needed when running CKEditor from source files.
+	temp.plugins = 'dialogui,dialog,about,a11yhelp,basicstyles,blockquote,clipboard,panel,floatpanel,menu,contextmenu,resize,button,toolbar,elementspath,enterkey,entities,popup,filebrowser,floatingspace,listblock,richcombo,format,horizontalrule,htmlwriter,wysiwygarea,image,indent,indentlist,fakeobjects,link,list,magicline,maximize,pastetext,pastefromword,removeformat,showborders,sourcearea,specialchar,menubutton,scayt,stylescombo,tab,table,tabletools,undo,wsc';
+	temp.skin = 'moono-lisa';
+	// %REMOVE_END%
+
+	// Define changes to default configuration here.
+	// For complete reference see:
+	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
+
+	// The toolbar groups arrangement, optimized for two toolbar rows.
+	temp.toolbarGroups = [
+		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
+		{ name: 'links' },
+		{ name: 'insert' },
+		{ name: 'forms' },
+		{ name: 'tools' },
+		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
+		{ name: 'others' },
+		'/',
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+		{ name: 'styles' },
+		{ name: 'colors' },
+		{ name: 'about' }
+	];
+
+	// Remove some buttons provided by the standard plugins, which are
+	// not needed in the Standard(s) toolbar.
+	temp.removeButtons = 'Underline,Subscript,Superscript';
+
+	// Set the most common block elements.
+	temp.format_tags = 'p;h1;h2;h3;pre';
+
+	// Simplify the dialog windows.
+	temp.removeDialogTabs = 'image:advanced;link:advanced';
 
 				//style sheet
 					if(dark){
