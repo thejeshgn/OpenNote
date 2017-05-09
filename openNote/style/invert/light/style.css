@@ -270,3 +270,7 @@ h6 {
     color: #9a9a9a;
     padding-left: 50px
 }
+
+.CodeMirror-scroll {
+    min-height: 600px;
+}
