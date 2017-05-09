@@ -1,9 +1,9 @@
 {
   "name": "OpenNote",
-  "version": "517.02.03",
+  "version": "517.02.04",
   "description": "",
   "main": "Gruntfile.js",
-  "author": "Jacob Liscom",
+  "author": "Jacob Liscom/Thejesh GN",
   "license": "MIT",
   "devDependencies": {
     "grunt-contrib-less": "^0.11.1",
