@@ -80,6 +80,15 @@ openNote.controller("folderController", function(	$scope,
 			helpText: $rootScope.helpContent.findButton
 		});
 
+		$rootScope.buttons.push({
+			text: "Sync",
+			action: function(){
+				alertify.success("Started the Sync process.");
+				storageService.syncNow();
+			},
+			helpText: $rootScope.helpContent.findButton
+		});
+
 	/**
 	 * Load current folder contents
 	 */

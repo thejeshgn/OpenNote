@@ -585,12 +585,15 @@ bower_components/ckeditor/skins/moono/images/lock.png
 bower_components/ckeditor/skins/moono/images/refresh.png
 bower_components/intro.js/example/assets/img/glyphicons-halflings-white.png
 bower_components/intro.js/example/assets/img/glyphicons-halflings.png
+bower_components/simplemde/simplemde.min.css 
+bower_components/simplemde/simplemde.min.js 
 openNote/style/OpenNote.png
 openNote/style/dark/ckeditor/moono.dark/icons.png
 openNote/style/dark/ckeditor/moono.dark/images/arrow.png
 openNote/style/dark/ckeditor/moono.dark/images/close.png
 openNote/style/dark/ckeditor/moono.dark/images/mini.png
 bower_components/ckeditor/samples/old/assets/sample.jpg
+
 
 NETWORK:
 *

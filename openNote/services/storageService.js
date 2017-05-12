@@ -47,7 +47,7 @@ openNote.service("storageService", function ($rootScope) {
 			var url = localStorage.getItem("remoteURL");
 			if(url){
 				remoteDatabase = new PouchDB(url);
-				this.setupSync();
+				this.syncNow();
 			}
 	};
 
@@ -83,8 +83,8 @@ openNote.service("storageService", function ($rootScope) {
 	/**
 	 * Setup live sync
 	 */
-	this.setupSync = function(){
-		localDatabase.sync(remoteDatabase,{live: true, retry: true}).on("complete", function () {
+	this.syncNow = function(){
+		localDatabase.sync(remoteDatabase,{live: false, retry: false}).on("complete", function () {
 			alertify.success("Replication complete");
 		}).on("error", function () {
 			alertify.error("Replication error");
